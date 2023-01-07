@@ -17,13 +17,14 @@ public class Produit {
     private String catégorie;
     private int ref; //référence
     private double prix;
+    private static int i=0;
 
     //constructeur
-    public Produit(String nom, String description, String catégorie, int ref, double prix) {
+    public Produit(String nom, String description, String catégorie, double prix) {
         this.nom = nom;
         this.description = description;
         this.catégorie = catégorie;
-        this.ref = ref;
+        this.ref = i++; //assign a reference then increment i
         this.prix = prix;
     }
     
