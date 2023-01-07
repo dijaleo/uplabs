@@ -1,5 +1,10 @@
 package Logic;
 
+/**
+ *
+ * @author dijaleo
+ */
+
 public interface stockInterface {
     public boolean ajouterProduit(Produit p);
     public boolean retirerProduit(Produit p);

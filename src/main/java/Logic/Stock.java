@@ -1,6 +1,11 @@
 package Logic;
 
-import java.util.HashMap;
+/**
+ *
+ * @author dijaleo
+ */
+
+import java.util.HashMap; 
 
 public class Stock implements stockInterface{
     HashMap<Integer, Integer> Produits; //key is product reference, and value is the available quantity in stock
