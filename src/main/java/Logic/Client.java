@@ -8,11 +8,14 @@ import java.util.Date;
  */
 
 public class Client extends Personne {
-    Date dateAjout;
+
+    private Date dateAjout;
+
     public Client(String nom, String prenom, Date dateDeNaissance) {
         super(nom, prenom, dateDeNaissance);
         this.dateAjout=new Date();
     }
+
     public Date getDateAjout() {
         return dateAjout;
     }
