@@ -4,6 +4,7 @@
  */
 package Logic;
 
+
 /**
  * Uplabs
  * @author dijaleo
@@ -11,7 +12,8 @@ package Logic;
 
 //imports et bibliothèques
 import java.util.Date; //pour la manipulation des dates de naissance
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public abstract class Personne {
     
@@ -22,10 +24,14 @@ public abstract class Personne {
     protected static int i=0;
     
     //méthodes
-    public Personne(String nom, String prenom, Date dateDeNaissance) {
+    public Personne(String nom, String prenom, String dateDeNaissance) {
         this.nom = nom;
         this.prenom = prenom;
-        this.dateDeNaissance = dateDeNaissance;
+        try {
+            this.dateDeNaissance= new SimpleDateFormat("dd/MM/yyyy").parse(dateDeNaissance);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         this.ID=i++;
     }
 

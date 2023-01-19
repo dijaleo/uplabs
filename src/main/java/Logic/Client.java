@@ -16,7 +16,7 @@ public class Client extends Personne {
     private Date dateAjout;
     private Map<Integer, Transaction> Transactions;
 
-    public Client(String nom, String prenom, Date dateDeNaissance) {
+    public Client(String nom, String prenom, String dateDeNaissance) {
         super(nom, prenom, dateDeNaissance);
         this.dateAjout=new Date();
         this.Transactions= new HashMap<Integer, Transaction>();
