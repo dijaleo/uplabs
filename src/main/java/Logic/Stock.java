@@ -1,5 +1,7 @@
 package Logic;
 
+import java.util.Date;
+
 /**
  *
  * @author dijaleo
@@ -32,27 +34,49 @@ public class Stock implements stockInterface{
         else return false; //if element does not exist or the key was associated with null, exit method with false signal
     }
 
-    @Override
+    @Override @Deprecated
     public boolean achatProduit(Produit p, int q) {
-        if(Produits.containsKey(p.getRef()) && q>0){ //check if the element already exists and the quantity to be bought is strictly superior to 0
-            Produits.replace(p.getRef(), Produits.get(p.getRef())+q); //replace old quantity with the new one by adding the old quantity to the quantity bought
-            return true; //exit method with true signal
+        if(Produits.containsKey(p.getRef()) && q>0){
+            Produits.replace(p.getRef(), Produits.get(p.getRef())+q);
+            return true;
         }
-        else return false; //if element does not exist, or quantity<=0, exit method with false signal
+        else return false;
     }
 
-    @Override
+    @Override @Deprecated
     public boolean venteProduit(Produit p, int q) {
-        if(Produits.containsKey(p.getRef()) && q>0){ //check if element already exists and the quantity to be sold is strictly superior to 0
-            Produits.replace(p.getRef(), Produits.get(p.getRef())-q); //replace old quantity with the new one by adding the old quantity to the quantity sold
-            return true; //exit method with true signam
+        if(Produits.containsKey(p.getRef()) && q>0){
+            Produits.replace(p.getRef(), Produits.get(p.getRef())-q);
+            return true;
         }
-        else return false; //if element does not exist, or quantity<=0, exit method with false signal
+        else return false;
     }
 
     @Override
     public boolean deteriorationProduit(Produit p, int q) {
         return venteProduit(p, q);
+    }
+
+    public class Transaction{
+        protected HashMap<Integer, Integer> ticket;
+        protected int reference;
+        protected Date date;
+        private static int i=0;
+
+        public Transaction(){
+            this.ticket= new HashMap<Integer, Integer>();
+            this.reference=i++;
+            this.date=new Date();
+        }
+
+        public boolean vente(Produit p, int qte){
+            if(Produits.containsKey(p.getRef()) && qte>0){ //check if element already exists and the quantity to be sold is strictly superior to 0
+                Produits.replace(p.getRef(), Produits.get(p.getRef())-qte); //replace old quantity with the new one by adding the old quantity to the quantity sold
+                this.ticket.put(p.getRef(), qte);
+                return true; //exit method with true signal
+            }
+            else return false; //if element does not exist, or quantity<=0, exit method with false signal
+        }
     }
 
 }
