@@ -6,8 +6,8 @@ package Logic;
  */
 
 /**
- *
- * @author Tassili
+ * Uplabs
+ * @author Aymen
  */
 public class Produit {
     
