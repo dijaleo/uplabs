@@ -12,10 +12,12 @@ import org.apache.commons.collections4.MultiValuedMap;
  public class Boutique{
     private HashMap<Integer, Produit> listeProduits; // product list, kind of like a catalog
     private MultiValuedMap<String, Integer> Categories; // product categories, each category is a key, and has an array list of products that belong to that same category
+    private HashMap<Integer, Client> Clients;
 
     public Boutique(){
         this.listeProduits=new HashMap<Integer,Produit>(); // initialize the product catalog
         this.Categories = new ArrayListValuedHashMap<String, Integer>(); // initialize the category list
+        this.Clients = new HashMap<Integer, Client>(); // initialize the customer list
     }
 
     public boolean nouveauProduit(Produit p){
@@ -32,5 +34,17 @@ import org.apache.commons.collections4.MultiValuedMap;
         // else, make a new category enrtry and add product's reference as its first value
         // no need to verify if the product already exists since this method is only called when adding a new product to the catalog
         this.Categories.put((p.getCatégorie().trim()).toLowerCase(), p.getRef()); 
+    }
+
+    public boolean nouveauClient(Client c){
+        // checks if customer alredy exists
+        if(!this.Clients.containsKey(c.getID())){
+            // if it doesn't, add it to the list of customers
+            this.Clients.put(c.getID(), c);
+            // exit method with success signal
+            return true;
+        }
+        // else if customer already exists, exit method with failure signal
+        else return false;
     }
  }
