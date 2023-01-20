@@ -6,7 +6,7 @@ package GUI;
  */
 
 /**
- *
+ * Uplabs
  * @author Tassili
  */
 public class interface_produit extends javax.swing.JFrame {
