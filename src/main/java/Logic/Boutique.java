@@ -30,10 +30,10 @@ import org.apache.commons.collections4.MultiValuedMap;
     }
 
     public void nouveauProduitCategorie(Produit p){
-        // make category in lowercase and trims any spaces at the end, automatically checks if it exists, add the product as a value
-        // else, make a new category enrtry and add product's reference as its first value
+        // Automatically checks if category exists, add the product as a value
+        // else, make a new category entry and add product's reference as its first value
         // no need to verify if the product already exists since this method is only called when adding a new product to the catalog
-        this.Categories.put((p.getCatégorie().trim()).toLowerCase(), p.getRef()); 
+        this.Categories.put(p.getCatégorie(), p.getRef()); 
     }
 
     public boolean nouveauClient(Client c){

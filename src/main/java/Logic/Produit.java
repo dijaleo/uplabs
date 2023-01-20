@@ -23,7 +23,8 @@ public class Produit {
     public Produit(String nom, String description, String catégorie, double prix) {
         this.nom = nom;
         this.description = description;
-        this.catégorie = catégorie;
+        // moved trimming and making category lower case to here, makes more sense
+        this.catégorie = (catégorie.toLowerCase()).trim();
         this.ref = i++; //assign a reference then increment i
         this.prix = prix;
     }
