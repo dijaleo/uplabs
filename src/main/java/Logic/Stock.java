@@ -3,7 +3,7 @@ package Logic;
 import java.util.Date;
 
 /**
- *
+ * Uplabs
  * @author dijaleo
  */
 
@@ -34,7 +34,7 @@ public class Stock implements stockInterface{
         else return false; //if element does not exist or the key was associated with null, exit method with false signal
     }
 
-    @Override @Deprecated
+    @Override
     public boolean achatProduit(Produit p, int q) {
         if(Produits.containsKey(p.getRef()) && q>0){
             Produits.replace(p.getRef(), Produits.get(p.getRef())+q);
@@ -45,7 +45,7 @@ public class Stock implements stockInterface{
 
     @Override @Deprecated
     public boolean venteProduit(Produit p, int q) {
-        if(Produits.containsKey(p.getRef()) && q>0){
+        if(Produits.containsKey(p.getRef()) && q>0 && Produits.get(p.getRef())>=q){
             Produits.replace(p.getRef(), Produits.get(p.getRef())-q);
             return true;
         }
@@ -58,7 +58,8 @@ public class Stock implements stockInterface{
     }
 
     public class Transaction{
-        protected HashMap<Integer, Integer> ticket;
+        // key is product reference, value is quantity bought by customer
+        protected HashMap<Integer, Integer> ticket; 
         protected int reference;
         protected Date date;
         private static int i=0;
@@ -70,13 +71,17 @@ public class Stock implements stockInterface{
         }
 
         public boolean vente(Produit p, int qte){
-            if(Produits.containsKey(p.getRef()) && qte>0){ //check if element already exists and the quantity to be sold is strictly superior to 0
-                Produits.replace(p.getRef(), Produits.get(p.getRef())-qte); //replace old quantity with the new one by adding the old quantity to the quantity sold
-                this.ticket.put(p.getRef(), qte);
-                return true; //exit method with true signal
+             // check if element already exists and the quantity to be sold is strictly superior to 0 
+             // and the quantity available in stock is superior eo equal to the quantity to be sold
+            if(Produits.containsKey(p.getRef()) && qte>0 && Produits.get(p.getRef())>=qte){
+                 // replace old quantity with the new one by adding the old quantity to the quantity sold
+                Produits.replace(p.getRef(), Produits.get(p.getRef())-qte);
+                // add the product's reference and the quantity bought to the ticket
+                this.ticket.put(p.getRef(), qte); 
+                //exit method with true signal
+                return true; 
             }
             else return false; //if element does not exist, or quantity<=0, exit method with false signal
         }
     }
-
 }
