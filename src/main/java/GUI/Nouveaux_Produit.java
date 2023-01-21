@@ -6,7 +6,7 @@ package GUI;
 
 /**
  * Uplabs
- * @author Tassili
+ * @author Aymen
  */
 public class Nouveaux_Produit extends javax.swing.JFrame {
 
