@@ -47,4 +47,20 @@ import org.apache.commons.collections4.MultiValuedMap;
         // else if customer already exists, exit method with failure signal
         else return false;
     }
+    
+    public boolean ajouterTransactionClient(int Matricule, Stock.Transaction t){
+        // check if customer exists
+        if(this.Clients.containsKey(Matricule)){
+            // if it does, store it in a temp variable
+            Client c=this.Clients.get(Matricule);
+            // add the transaction to its list
+            c.ajouterTransaction(t);
+            // replace customer in current list with the temp one, with the new transaction added
+            this.Clients.replace(Matricule, c);
+            // exit method with sucess signal
+            return true;
+        }
+        // if customer does not exist, exit method with failure signal
+        else return false;
+    }
  }
