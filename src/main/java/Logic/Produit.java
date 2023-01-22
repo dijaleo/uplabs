@@ -20,13 +20,13 @@ public class Produit {
     private static int i=0;
 
     //constructeur
-    public Produit(String nom, String description, String catégorie, double prix) {
+    public Produit(String nom, String description, String catégorie, double prix, int reference) {
         this.nom = nom;
         this.description = description;
         // moved trimming and making category lower case to here, makes more sense
         this.catégorie = (catégorie.toLowerCase()).trim();
-        this.ref = i++; //assign a reference then increment i
         this.prix = prix;
+        this.ref=reference;
     }
     
     //getter and setter
