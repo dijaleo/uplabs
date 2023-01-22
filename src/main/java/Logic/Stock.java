@@ -26,35 +26,35 @@ public class Stock implements stockInterface{
     }
 
     @Override
-    public boolean retirerProduit(Produit p) {
-        if(Produits.containsKey(p.getRef())){ //check if element is indeed present
-            Produits.remove(p.getRef()); //remove the element using its reference
+    public boolean retirerProduit(int reference) {
+        if(Produits.containsKey(reference)){ //check if element is indeed present
+            Produits.remove(reference); //remove the element using its reference
             return true; //exit method with true signal
         }
         else return false; //if element does not exist or the key was associated with null, exit method with false signal
     }
 
     @Override
-    public boolean achatProduit(Produit p, int q) {
-        if(Produits.containsKey(p.getRef()) && q>0){
-            Produits.replace(p.getRef(), Produits.get(p.getRef())+q);
+    public boolean achatProduit(int reference, int q) {
+        if(Produits.containsKey(reference) && q>0){
+            Produits.replace(reference, Produits.get(reference)+q);
             return true;
         }
         else return false;
     }
 
     @Override @Deprecated
-    public boolean venteProduit(Produit p, int q) {
-        if(Produits.containsKey(p.getRef()) && q>0 && Produits.get(p.getRef())>=q){
-            Produits.replace(p.getRef(), Produits.get(p.getRef())-q);
+    public boolean venteProduit(int reference, int q) {
+        if(Produits.containsKey(reference) && q>0 && Produits.get(reference)>=q){
+            Produits.replace(reference, Produits.get(reference)-q);
             return true;
         }
         else return false;
     }
 
     @Override
-    public boolean deteriorationProduit(Produit p, int q) {
-        return venteProduit(p, q);
+    public boolean deteriorationProduit(int reference, int q) {
+        return venteProduit(reference, q);
     }
 
     public class Transaction{

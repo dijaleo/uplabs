@@ -7,8 +7,8 @@ package Logic;
 
 public interface stockInterface {
     public boolean ajouterProduit(Produit p);
-    public boolean retirerProduit(Produit p);
-    public boolean achatProduit(Produit p, int q);
-    public boolean venteProduit(Produit p, int q);
-    public boolean deteriorationProduit(Produit p, int q);
+    public boolean retirerProduit(int reference);
+    public boolean achatProduit(int reference, int q);
+    public boolean venteProduit(int reference, int q);
+    public boolean deteriorationProduit(int reference, int q);
 }
