@@ -70,14 +70,14 @@ public class Stock implements stockInterface{
             this.date=new Date();
         }
 
-        public boolean vente(Produit p, int qte){
+        public boolean vente(int ref, int qte){
              // check if element already exists and the quantity to be sold is strictly superior to 0 
              // and the quantity available in stock is superior eo equal to the quantity to be sold
-            if(Produits.containsKey(p.getRef()) && qte>0 && Produits.get(p.getRef())>=qte){
+            if(Produits.containsKey(ref) && qte>0 && Produits.get(ref)>=qte){
                  // replace old quantity with the new one by adding the old quantity to the quantity sold
-                Produits.replace(p.getRef(), Produits.get(p.getRef())-qte);
+                Produits.replace(ref, Produits.get(ref)-qte);
                 // add the product's reference and the quantity bought to the ticket
-                this.ticket.put(p.getRef(), qte); 
+                this.ticket.put(ref, qte); 
                 //exit method with true signal
                 return true; 
             }
