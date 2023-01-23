@@ -1,13 +1,14 @@
 package Logic;
 
-import java.util.Date;
-
 /**
  * Uplabs
  * @author dijaleo
  */
 
-import java.util.HashMap; 
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Stock implements stockInterface{
     HashMap<Integer, Integer> Produits; //key is product reference, and value is the available quantity in stock
@@ -82,6 +83,15 @@ public class Stock implements stockInterface{
                 return true; 
             }
             else return false; //if element does not exist, or quantity<=0, exit method with false signal
+        }
+
+        @Override
+        public String toString(){
+            String s = "Transaction N°"+this.reference+". Date: "+DateFormat.getDateInstance().format(this.date);
+            for (Map.Entry<Integer, Integer> set : ticket.entrySet()){
+                s+="\nRef: "+set.getKey()+"     Quantité: "+set.getValue();
+            }
+            return s;
         }
     }
 }
