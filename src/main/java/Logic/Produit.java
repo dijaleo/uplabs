@@ -67,6 +67,6 @@ public class Produit {
 
     @Override
     public String toString(){
-        return this.ref+"   "+this.nom+"    "+this.prix+"DA     "+this.catégorie+"\n"+this.description;
+        return this.ref+"   "+this.nom+"    "+this.prix+"DA     "+this.catégorie+"  "+this.description;
     }
 }

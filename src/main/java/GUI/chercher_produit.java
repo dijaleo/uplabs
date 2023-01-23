@@ -135,10 +135,10 @@ public class chercher_produit extends javax.swing.JFrame {
         if(Acceuil.boutique.produitExiste(Integer.parseInt(jTextField1.getText()))){
             String s = Acceuil.boutique.retournerProduitPourAffichage(Integer.parseInt(jTextField1.getText())).toString();
             if(Acceuil.stock.produitExiste(Integer.parseInt(jTextField1.getText()))){
-                s+="\nQuantité en stock : "+Acceuil.stock.retournerQteStock(Integer.parseInt(jTextField1.getText()));
+                s+="    Quantité en stock : "+Acceuil.stock.retournerQteStock(Integer.parseInt(jTextField1.getText()));
             }
             else {
-                s+="\nProduit inexistant dans le stock !";
+                s+="    Produit inexistant dans le stock !";
             }
             jLabel3.setText(s);
         }
