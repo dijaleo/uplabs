@@ -29,4 +29,13 @@ public class Client extends Personne {
     public void ajouterTransaction(Transaction t){
         this.Transactions.put(t.reference, t);
     }
+
+    @Override
+    public String toString(){
+        String s = "Client N°"+this.ID+"    Nom: "+this.nom+"   Prénom: "+this.prenom;
+        for (Map.Entry<Integer, Transaction> set : Transactions.entrySet()){
+            s+="\n"+set.getValue().toString();
+        }
+        return s;
+    }
 }
