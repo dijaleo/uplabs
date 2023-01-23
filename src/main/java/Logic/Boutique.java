@@ -71,4 +71,12 @@ import org.apache.commons.collections4.MultiValuedMap;
     public Client retournerClientPourAffichage(int ref){
         return this.Clients.get(ref);
     }
+
+    public boolean produitExiste(int ref){
+        return this.listeProduits.containsKey(ref);
+    }
+
+    public Produit retournerProduitPourAffichage(int ref){
+        return this.listeProduits.get(ref);
+    }
  }
