@@ -58,6 +58,14 @@ public class Stock implements stockInterface{
         return venteProduit(reference, q);
     }
 
+    public boolean produitExiste(int ref){
+        return this.Produits.containsKey(ref);
+    }
+
+    public int retournerQteStock(int ref){
+        return this.Produits.get(ref);
+    }
+
     public class Transaction{
         // key is product reference, value is quantity bought by customer
         protected HashMap<Integer, Integer> ticket; 
