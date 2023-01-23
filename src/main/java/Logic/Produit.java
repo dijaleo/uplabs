@@ -17,7 +17,6 @@ public class Produit {
     private String catégorie;
     private int ref; //référence
     private double prix;
-    private static int i=0;
 
     //constructeur
     public Produit(String nom, String description, String catégorie, double prix, int reference) {
@@ -64,5 +63,10 @@ public class Produit {
 
     public void setPrix(double prix) {
         this.prix = prix;
+    }
+
+    @Override
+    public String toString(){
+        return this.ref+"   "+this.nom+"    "+this.prix+"DA     "+this.catégorie+"\n"+this.description;
     }
 }
