@@ -89,6 +89,9 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;Afficher les &lt;br&gt;transactions &lt;br&gt;d&apos;un client&lt;/html&gt;"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
