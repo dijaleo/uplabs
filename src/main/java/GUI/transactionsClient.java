@@ -111,7 +111,7 @@ public class transactionsClient extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(Acceuil.boutique.clientExiste(Integer.parseInt(jTextField1.getText()))){
-            jLabel3.setText(Acceuil.boutique.retournerClientPourAffichage(Integer.parseInt(jTextField1.getText())).toString());
+            jLabel3.setText("<html>"+Acceuil.boutique.retournerClientPourAffichage(Integer.parseInt(jTextField1.getText())).toString()+"</html>");
         }
         else {
             jLabel4.setText("Client inexistant !");

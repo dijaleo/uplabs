@@ -32,9 +32,9 @@ public class Client extends Personne {
 
     @Override
     public String toString(){
-        String s = "Client N°"+this.ID+"    Nom: "+this.nom+"   Prénom: "+this.prenom;
+        String s = "Client N°"+this.ID+"    "+this.nom+" "+this.prenom;
         for (Map.Entry<Integer, Transaction> set : Transactions.entrySet()){
-            s+="\n"+set.getValue().toString();
+            s+="<br>"+set.getValue().toString();
         }
         return s;
     }
