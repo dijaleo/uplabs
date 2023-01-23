@@ -199,7 +199,7 @@ public class Vente extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.transaction.vente(Integer.parseInt(jTextField3.getText()), Integer.parseInt(jTextField2.getText()));
-        jTextField1.setText("");
+        jTextField3.setText("");
         jTextField2.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
