@@ -63,4 +63,12 @@ import org.apache.commons.collections4.MultiValuedMap;
         // if customer does not exist, exit method with failure signal
         else return false;
     }
+
+    public boolean clientExiste(int ref){
+        return this.Clients.containsKey(ref);
+    }
+
+    public Client retournerClientPourAffichage(int ref){
+        return this.Clients.get(ref);
+    }
  }
