@@ -1,6 +1,8 @@
 package Logic;
 
 import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.commons.collections4.multimap.*;
 import org.apache.commons.collections4.MultiValuedMap;
 
@@ -78,5 +80,13 @@ import org.apache.commons.collections4.MultiValuedMap;
 
     public Produit retournerProduitPourAffichage(int ref){
         return this.listeProduits.get(ref);
+    }
+
+    public String listeProduits(){
+        String s="";
+        for(Map.Entry<Integer, Produit> set : listeProduits.entrySet()){
+            s+="\n"+set.getValue().toString()+"\n";
+        }
+        return s;
     }
  }
