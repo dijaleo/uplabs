@@ -215,6 +215,7 @@ public class ajouter_client extends javax.swing.JFrame {
         if(Acceuil.boutique.nouveauClient(c)){
             Acceuil.boutique.nouveauClient(c);
             jLabel5.setText("Client ajouté ! Matricule:"+c.getID());
+            jButton3.setEnabled(false);
         }
         else {
             // will never reach here, since verification is done on ID, and ID is automatically incremented, TODO.
